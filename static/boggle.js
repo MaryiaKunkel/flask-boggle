@@ -134,6 +134,7 @@ class Game{
         alert("Game timer has expired!");
         // const $guessInput = $('#guess-input');
         if (this.$guessForm) {
+            console.log("$guessForm exists");
             this.$guessInput.remove();
         }
     }
