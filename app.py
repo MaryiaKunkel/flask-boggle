@@ -17,8 +17,6 @@ def show_board():
     ''' Show the board '''
     board=boggle_game.make_board()
     session['board']=board
-
-
     return render_template('home.html', board=board)
 
 @app.route('/check-guess', methods=['POST'])
@@ -34,4 +32,6 @@ def check_guess():
 def game_over():
     ''' Get the score '''
     score=request.json.get('score')
-    return jsonify({'message': 'Score and plays updated successfully'})
+    plays=request.json.get('plays')
+
+    return jsonify({'message': 'Score and plays updated successfully', 'score': score, 'plays': plays})
